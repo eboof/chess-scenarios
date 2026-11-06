@@ -1,0 +1,26 @@
+{
+  "name": "chess-scenarios",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "copy-engine": "node scripts/copy-engine.mjs",
+    "predev": "npm run copy-engine",
+    "prebuild": "npm run copy-engine",
+    "dev": "vite --host",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host",
+    "check-fens": "node scripts/check-samples.mjs"
+  },
+  "dependencies": {
+    "@lichess-org/chessground": "^10.5.0",
+    "chess.js": "^1.4.0",
+    "stockfish": "^19.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.6",
+    "vite-plugin-pwa": "^2.0.0"
+  }
+}
