@@ -190,7 +190,9 @@ details p { margin: 0.5em 0 0; white-space: pre-wrap; }
 
 /* ---- Library ---- */
 .library { padding: 16px; max-width: 1100px; margin: 0 auto; }
-.library input[type='search'] { margin-bottom: 16px; }
+.library input[type='search'] { margin-bottom: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.chip { border-radius: 999px; padding: 0.3em 0.85em; font-size: 0.85em; }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
 .card { display: flex; gap: 12px; background: var(--bg2); border-radius: var(--radius); padding: 10px; }
 .thumb-wrap { width: 130px; height: 130px; flex: none; cursor: pointer; }

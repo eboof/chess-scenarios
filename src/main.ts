@@ -4,7 +4,8 @@ import '@lichess-org/chessground/assets/chessground.cburnett.css';
 import './style.css';
 import { registerSW } from 'virtual:pwa-register';
 import * as store from './storage';
-import { SAMPLES } from './samples';
+import { PACKS } from './samples';
+import { toast } from './ui';
 import { currentRoute } from './router';
 import { libraryView } from './views/library';
 import { editorView } from './views/editor';
@@ -23,7 +24,8 @@ function render() {
   else cleanup = libraryView(app);
 }
 
-store.seedIfFirstRun(SAMPLES);
+const added = store.addNewPacks(PACKS);
+if (added && store.loadAll().length > added) setTimeout(() => toast(`Added ${added} new positions to your library`, 3500), 300);
 store.requestPersistence();
 window.addEventListener('hashchange', render);
 render();

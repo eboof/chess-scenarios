@@ -1,4 +1,5 @@
-import type { Scenario } from './storage';
+import type { Pack, Scenario } from './storage';
+import capablancaCh1to3 from './packs/capablanca-fundamentals-ch1-3.json';
 
 // A few classic endgame positions loaded on first run so the library isn't empty.
 // Capablanca opens "Chess Fundamentals" with exactly these basic endings.
@@ -40,4 +41,12 @@ export const SAMPLES: Partial<Scenario>[] = [
     tags: ['endgame', 'rook'],
     fen: '1K6/1P1k4/8/8/8/8/r7/2R5 w - - 0 1',
   },
+];
+
+// Built-in collections. Each one is added to the library once (see addNewPacks).
+export const PACKS: Pack[] = [
+  { id: 'samples', scenarios: SAMPLES },
+  // Diagrams from chapters 1-3 of Capablanca's Chess Fundamentals (1921, public domain),
+  // transcribed from the Project Gutenberg edition. The book's lines are in each solution field.
+  { id: 'capablanca-fundamentals-ch1-3', scenarios: capablancaCh1to3 },
 ];

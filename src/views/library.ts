@@ -8,8 +8,10 @@ import { navigate } from '../router';
 export function libraryView(root: HTMLElement): () => void {
   let boards: Api[] = [];
   let query = '';
+  let activeTag: string | null = null;
 
   const list = h('div', { class: 'cards' });
+  const chips = h('div', { class: 'chips' });
   const search = h('input', {
     type: 'search',
     placeholder: 'Search title, source, tags…',
@@ -32,7 +34,7 @@ export function libraryView(root: HTMLElement): () => void {
         h('button', { onclick: doExport }, 'Export'),
       ),
     ),
-    h('div', { class: 'library' }, search, list),
+    h('div', { class: 'library' }, search, chips, list),
   );
 
   function destroyBoards() {
@@ -40,10 +42,26 @@ export function libraryView(root: HTMLElement): () => void {
     boards = [];
   }
 
+  function renderChips(all: store.Scenario[]) {
+    const counts = new Map<string, number>();
+    for (const s of all) for (const t of s.tags) counts.set(t, (counts.get(t) ?? 0) + 1);
+    const tags = [...counts.entries()].filter(([, n]) => n >= 2).sort((a, b) => b[1] - a[1]).slice(0, 16).sort((a, b) => a[0].localeCompare(b[0], undefined, { numeric: true })).map(([t]) => t);
+    if (activeTag && !counts.has(activeTag)) activeTag = null;
+    if (activeTag && !tags.includes(activeTag)) tags.unshift(activeTag);
+    chips.replaceChildren(
+      ...(tags.length ? [h('button', { class: `chip${activeTag ? '' : ' active'}`, onclick: () => ((activeTag = null), renderList()) }, `All (${all.length})`)] : []),
+      ...tags.map(t => h('button', { class: `chip${t === activeTag ? ' active' : ''}`, onclick: () => ((activeTag = t === activeTag ? null : t), renderList()) }, `${t} (${counts.get(t)})`)),
+    );
+  }
+
   function renderList() {
     destroyBoards();
     list.replaceChildren();
-    const items = store.loadAll().filter(s => !query || [s.title, s.source, s.goal, s.notes, ...s.tags].join(' ').toLowerCase().includes(query));
+    const all = store.loadAll();
+    renderChips(all);
+    const items = all
+      .filter(s => !activeTag || s.tags.includes(activeTag))
+      .filter(s => !query || [s.title, s.source, s.goal, s.notes, ...s.tags].join(' ').toLowerCase().includes(query));
     if (!items.length) {
       list.append(h('p', { class: 'empty' }, query ? 'No positions match your search.' : 'No positions yet. Tap “New position” to set one up.'));
       return;

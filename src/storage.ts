@@ -89,11 +89,33 @@ export function blank(fen: string): Scenario {
   return normalize({ fen });
 }
 
-/** Puts a few classic examples in the library the very first time the app runs. */
-export function seedIfFirstRun(samples: Partial<Scenario>[]): void {
-  if (localStorage.getItem(SEEDED_KEY)) return;
+export interface Pack {
+  id: string;
+  scenarios: Partial<Scenario>[];
+}
+
+const PACKS_KEY = 'chess-scenarios.packs';
+
+/**
+ * Adds each built-in collection to the library once. A collection that has already been added
+ * isn't added again, so positions the user deleted stay deleted. Returns the number of positions added.
+ */
+export function addNewPacks(packs: Pack[]): number {
+  let done: string[] = [];
+  try {
+    done = JSON.parse(localStorage.getItem(PACKS_KEY) || '[]');
+  } catch {}
+  // Libraries created before collections existed already got the samples on first run.
+  if (localStorage.getItem(SEEDED_KEY) && !done.includes('samples')) done.push('samples');
+  let added = 0;
+  for (const p of packs) {
+    if (done.includes(p.id)) continue;
+    added += importMany(p.scenarios);
+    done.push(p.id);
+  }
+  localStorage.setItem(PACKS_KEY, JSON.stringify(done));
   localStorage.setItem(SEEDED_KEY, '1');
-  if (loadAll().length === 0) importMany(samples);
+  return added;
 }
 
 /** Ask Safari to keep our data rather than evicting it under storage pressure. */

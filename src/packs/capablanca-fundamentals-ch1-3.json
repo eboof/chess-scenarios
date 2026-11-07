@@ -1,0 +1,691 @@
+[
+ {
+  "id": "cf-fig-01",
+  "title": "Ex 1 · Rook and king vs king (cornered king)",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §1 Some Simple Mates (p. 4)",
+  "goal": "White to play and mate",
+  "notes": "The rook first cuts the black king off on the last rank; then the white king marches up, staying on the file next to the enemy king (towards the centre), until the defender is forced in front of it and mated on the back rank. Mate in ten.",
+  "solution": "1. Ra7 Kg8 2. Kg2 Kf8 3. Kf3 Ke8 4. Ke4 Kd8 5. Kd5 Kc8 6. Kd6 Kb8 7. Rc7 Ka8 8. Kc6 Kb8 9. Kb6 Ka8 10. Rc8#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "7k/8/8/8/8/8/8/R6K w - - 0 1"
+ },
+ {
+  "id": "cf-fig-02",
+  "title": "Ex 2 · Rook and king vs centralised king",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §1 Some Simple Mates (p. 5)",
+  "goal": "White to play and mate",
+  "notes": "With the enemy king in the centre, White first brings his king forward beside (not in front of) the black king, then uses the rook to box the king into an ever-smaller area, the king staying next to the rook. Mate in eleven.",
+  "solution": "1. Ke2 Kd5 2. Ke3 Kc4 3. Rh5 (3... Kb4 4. Kd3) Kc3 4. Rh4 Kc2 5. Rc4+ Kb3 6. Kd3 Kb2 7. Rb4+ Ka3 8. Kc3 Ka2 9. Ra4+ Kb1 10. Ra5 Kc1 11. Ra1#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "8/8/8/4k3/8/8/8/4K2R w - - 0 1"
+ },
+ {
+  "id": "cf-fig-03",
+  "title": "Ex 3 · Two bishops and king vs king",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §1 Some Simple Mates (p. 6)",
+  "goal": "White to play and mate",
+  "notes": "The bishops confine the black king, which must be driven not just to the edge but into a corner; the white king comes to the sixth rank on one of the last two files, and the bishops lose a tempo when needed before mating. Beware stalemate.",
+  "solution": "1. Bd3 Kg7 2. Bg5 Kf7 3. Bf5 Kg7 4. Kf2 Kf7 5. Kg3 Kg7 6. Kh4 Kf7 7. Kh5 Kg7 8. Bg6 Kg8 9. Kh6 Kf8 10. Bh5 Kg8 11. Be7 Kh8 12. Bg4 Kg8 13. Be6+ Kh8 14. Bf6#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "7k/8/8/8/8/8/8/2B1KB2 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-04",
+  "title": "Ex 4 · Queen and king vs king",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §1 Some Simple Mates (p. 8)",
+  "goal": "White to play and mate",
+  "notes": "The easiest basic mate: the queen moves first to restrict the black king, then king and queen together push it to the edge. It should take under ten moves.",
+  "solution": "1. Qc6 Kd4 2. Kd2 Ke5 3. Ke3 Kf5 4. Qd6 Kg5 (4... Kg4 5. Qg6+) 5. Qe6 Kh4 (5... Kh5 6. Kf4) 6. Qg6 Kh3 7. Kf3 Kh2 8. Qg2#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "8/8/8/4k3/8/8/8/4K2Q w - - 0 1"
+ },
+ {
+  "id": "cf-fig-05",
+  "title": "Ex 5 · King and pawn vs king: the draw",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §2 Pawn Promotion (p. 10)",
+  "goal": "Black to draw (White to play)",
+  "notes": "The defending king stays directly in front of the pawn, or when the white king prevents that, directly in front of the white king, as far forward as possible. With correct defence the ending is drawn by stalemate or loss of the pawn.",
+  "solution": "1. e3 Ke5 2. Kd3 Kd5 3. e4+ Ke5 4. Ke3 Ke6 5. Kf4 Kf6 6. e5+ Ke6 7. Ke4 Ke7 8. Kd5 Kd7 9. e6+ Ke7 10. Ke5 Ke8 11. Kd6 Kd8",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "8/8/8/8/4k3/8/3KP3/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-06",
+  "title": "Ex 6 · King in front of pawn: the win",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §2 Pawn Promotion (p. 11)",
+  "goal": "White to play and win",
+  "notes": "With the king in front of its pawn and a square between, White wins: advance the king as far as the pawn's safety allows and push the pawn only when needed, using the pawn moves to gain the opposition.",
+  "solution": "1. Ke4 Ke6 2. e3 Kf6 3. Kd5 Ke7 4. Ke5 Kd7 5. Kf6 Ke8 6. e4 Kd7 7. e5 Ke8 8. Ke6 Kf8 9. Kd7",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "8/8/5k2/8/5K2/8/4P3/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-07",
+  "title": "Ex 7 · Two pawns vs one: f- and g-pawns",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §3 Pawn Endings (p. 13)",
+  "goal": "White to play and win",
+  "notes": "1.f6 only draws; instead White first walks his king to e7, then plays f6 so that after gxf6 his king reaches f7 and the g-pawn queens with mate.",
+  "solution": "1. Kd7 Kg8 2. Ke7 Kh8 3. f6 gxf6 (3... Kg8 4. f7+ Kh8 5. f8=Q#) 4. Kf7 f5 5. g7+ Kh7 6. g8=Q+ Kh6 7. Qg6#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "5k2/6p1/4K1P1/5P2/8/8/8/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-08",
+  "title": "Ex 8 · Two pawns vs one: opposition",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §3 Pawn Endings (p. 14)",
+  "goal": "White to play and win",
+  "notes": "Advancing a pawn at once lets Black draw by ...g6 thanks to the opposition. White must manoeuvre with the king, and in the end sacrifice the f-pawn to win the g-pawn and then queen with precise king play.",
+  "solution": "1. Ke4 Ke6 (1... g6 2. Kd4 Ke6 3. Kc5 Kf6 4. Kd6 Kf7 5. g5 Kg7 6. Ke7 Kg8 7. Kf6 Kh7 8. Kf7) 2. f5+ Kf6 3. Kf4 g6 4. g5+ Kf7 5. f6 Ke6 6. Ke4 Kf7 7. Ke5 Kf8 8. f7 Kxf7 9. Kd6 Kf8 10. Ke6 Kg7 11. Ke7 Kg8 12. Kf6 Kh7 13. Kf7 Kh8 14. Kxg6 Kg8 15. Kh6 Kh8 16. g6 Kg8 17. g7 Kf7 18. Kh7",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "8/6p1/3k4/8/3K1PP1/8/8/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-09",
+  "title": "Ex 9 · Three pawns vs two on the kingside",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §3 Pawn Endings (p. 16)",
+  "goal": "White to play and win",
+  "notes": "Any pawn advance wins, but the general rule is to push the pawn with no opposing pawn first. White advances steadily, reducing the position to one of the earlier two-against-one endings.",
+  "solution": "1. f5 Ke7 2. Ke5 Kf7 3. g5 Ke7 4. h5",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "8/6pp/3k4/8/3K1PPP/8/8/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-10",
+  "title": "Ex 10 · Pawns on both wings",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §3 Pawn Endings (p. 17)",
+  "goal": "White to play and win",
+  "notes": "Act at once on the wing where you have the majority, advancing the unopposed pawn. Once the kingside pawns can defend themselves, the white king crosses to the queenside to win Black's pawn.",
+  "solution": "1. g4 a5 2. a4 Kf6 3. h4 Ke6 4. g5 Kf7 5. Kf5 Kg7 6. h5 Kf7 7. Ke5",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "8/p6p/4k3/8/4K3/8/P5PP/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-11",
+  "title": "Ex 11 · Queen sacrifice on h7",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §4 Some Winning Positions in the Middle-Game (p. 19)",
+  "goal": "Black to move; White mates",
+  "notes": "Black thinks the only threat is Qh6 and Qg7 mate and plays ...Re8 to threaten a back-rank mate. White sacrifices the queen on h7, and the rook swings to the h-file to mate, with the b2 bishop covering g7.",
+  "solution": "1... Re8 2. Qxh7+ Kxh7 3. Rh3+ Kg8 4. Rh8#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "5rk1/1b3p1p/ppq3p1/2p5/8/1P1P1R1Q/PBP3PP/7K b - - 0 1"
+ },
+ {
+  "id": "cf-fig-12",
+  "title": "Ex 12 · Knight Check Clears the Way",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §4 Some Winning Positions in the Middle-Game (p. 20)",
+  "goal": "White to play and win material",
+  "notes": "White is a piece down but the weakened g6 pawn structure lets him exploit the mating pattern Qxh7+ and Rh3+. Because Black cannot take the knight without allowing mate, White forces off queens and wins one of the two bishops.",
+  "solution": "1. Nxc6 Bg5 (1... Bxc6 2. Qxh7+ Kxh7 3. Rh3+ Kg8 4. Rh8#) 2. Ne7+ Qxe7 (2... Bxe7 3. Qxh7+ Kxh7 4. Rh3+ Kg8 5. Rh8#) 3. Rxe7 Bxe7 4. Qd7",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "5rk1/1bq1bp1p/p1n3p1/1p6/3N4/1P1PR2Q/PBP3PP/7K w - - 0 1"
+ },
+ {
+  "id": "cf-fig-13",
+  "title": "Ex 13 · Knight Sacrifice on f6",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §4 Some Winning Positions in the Middle-Game (p. 21)",
+  "goal": "White to play and mate",
+  "notes": "Though down the exchange, White sacrifices the knight on f6 to break open Black's king. The queen check on the g-file and the long-diagonal bishop then combine for mate.",
+  "solution": "1. Nf6+ gxf6 2. Qg3+ Kh8 3. Bxf6#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "2q2rk1/1b3ppp/pp6/2p5/2P1N3/PP1Q4/1B3PPP/6K1 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-14",
+  "title": "Ex 14 · Removing the Defender",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §4 Some Winning Positions in the Middle-Game (p. 22)",
+  "goal": "White to play and mate",
+  "notes": "A more complex version of the f6 sacrifice: White first removes the knight that guards f6, then sacrifices on f6 and mates with rook on the g-file and bishop on the long diagonal.",
+  "solution": "1. Bxd7 Qxd7 (1... Bxe4 2. Qc3) 2. Nf6+ gxf6 3. Rg3+ Kh8 4. Bxf6#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "2q1rrk1/1bpn1ppp/pp1p4/1B6/4N3/1P1QR3/PBP2PPP/6K1 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-15",
+  "title": "Ex 15 · Bishop Sacrifice on h7",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §4 Some Winning Positions in the Middle-Game (p. 22)",
+  "goal": "White to play and win",
+  "notes": "The classic Bxh7+ sacrifice: after Qh5+ and Ng5, Black can stop mate on h7 only by giving up his queen. White wins despite being the exchange and a pawn behind.",
+  "solution": "1. Bxh7+ Kxh7 (1... Kh8 2. Qh5 g6 3. Qh6) 2. Qh5+ Kg8 3. Ng5 Qe5",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "r3qrk1/1pp2ppp/p1np4/3Q4/8/P2B1N2/1PP2PPP/3R2K1 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-16",
+  "title": "Ex 16 · Clearing Lines for Bxh7",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §4 Some Winning Positions in the Middle-Game (p. 23)",
+  "goal": "White to play and win",
+  "notes": "White clears the diagonal for his bishop and eliminates the defenders of h7 and g5 with exchanges, then executes the Bxh7+ / Qh5+ / Ng5 attack. All the pieces co-ordinate against the weak point.",
+  "solution": "1. Nxe7+ Bxe7 2. Rxe7 Nxe7 3. Bxh7+ Kxh7 (3... Kh8 4. Qh5 g6 5. Bxg6+ Kg7 6. Qh7+ Kf6 7. g5+ Ke6 8. Bxf7+ Rxf7 9. Qe4#) 4. Qh5+ Kg8 5. Ng5 Rc8 6. Qh7+ Kf8 7. Qh8+ Ng8 8. Nh7+ Ke7 9. Re1+ Kd8 10. Qxg8#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "2nb1rk1/1pqrnppp/p2p4/2pQ1N2/6P1/1P1B1N1P/P3RP2/3R2K1 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-17",
+  "title": "Ex 17 · Four Knights: 7. Bg5",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §6 General Strategy of the Opening (p. 27)",
+  "goal": "Black to play (forced 7...Bxc3)",
+  "notes": "Position after 1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6 4.Bb5 Bb4 5.O-O O-O 6.d3 d6 7.Bg5. White threatens Nd5, so Black must exchange on c3; White keeps the initiative with his development complete in seven moves.",
+  "solution": "7... Bxc3 8. bxc3",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "r1bq1rk1/ppp2ppp/2np1n2/1B2p1B1/1b2P3/2NP1N2/PPP2PPP/R2Q1RK1 b - - 1 7"
+ },
+ {
+  "id": "cf-fig-18",
+  "title": "Ex 19 · Undeveloped Black Queen",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §7 Control of the Centre (p. 32)",
+  "goal": "White to play and gain the advantage",
+  "notes": "After Black's early Bg4xf3 and queen sortie, only his queen is developed. White, with bishop and knight out, can strike quickly with Nd5 anyway; the student is left to work out the variations.",
+  "solution": "9. Nd5",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "rn2kbnr/p4ppp/1pp2q2/4p3/2B1P3/1QN5/PPP2PPP/R1B1K2R w KQkq - 0 9"
+ },
+ {
+  "id": "cf-fig-19",
+  "title": "Ex 20 · Legal's Mate Trap",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §8 Traps (p. 33)",
+  "goal": "White to play and mate",
+  "notes": "After dxe5 Black recaptures with the knight instead of the pawn, and White sacrifices his queen: Nxe5 Bxd1 Bxf7+ Ke7 Nd5 mate. The bishop pin on the queen is only apparent; the minor pieces deliver mate.",
+  "solution": "1. dxe5 Nxe5 2. Nxe5 Bxd1 3. Bxf7+ Ke7 4. Nd5#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "r2qkbnr/ppp2pp1/2np3p/4p3/2BPP1b1/2N2N2/PPP2PPP/R1BQK2R w KQkq - 0 1"
+ },
+ {
+  "id": "cf-fig-20",
+  "title": "Ex 21 · Bxf7+ and Ne5+ Trap",
+  "source": "Capablanca, Chess Fundamentals, ch. 1, §8 Traps (p. 33)",
+  "goal": "Black to move; after 1...Nf6? White wins a pawn",
+  "notes": "Black should play ...e6, but if he develops with ...Nf6, Bxf7+ followed by Ne5+ forks king and the g4 bishop, winning a pawn with the better position. Take the sure material gain rather than a speculative one.",
+  "solution": "1... Nf6 2. Bxf7+ Kxf7 3. Ne5+ Kg8 4. Nxg4",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 1"
+  ],
+  "fen": "rn1qkbnr/ppp1pppp/8/8/2B3b1/2N2N2/PPPP1PPP/R1BQK2R b KQkq - 0 1"
+ },
+ {
+  "id": "cf-fig-21",
+  "title": "Ex 22 · A Unit That Holds Two",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §9 A Cardinal Principle (p. 35)",
+  "goal": "White to play; b4 draws, but after 1.a4? Black wins",
+  "notes": "White should advance the unopposed b-pawn to draw. After 1.a4? a5! one black pawn holds both white queenside pawns, and Black's king gains the decisive tempo, leading to a won king-and-pawn ending.",
+  "solution": "1. a4 a5 2. Kg2 Kf4 3. b4 axb4 4. a5 b3 5. a6 b2 6. a7 b1=Q 7. a8=Q Qe4+ 8. Qxe4+ Kxe4",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/p5p1/7p/6k1/8/7K/PP5P/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-22",
+  "title": "Ex 23 · Two Pawns Beat One",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §10 A Classical Ending (p. 37)",
+  "goal": "White to play; Black wins",
+  "notes": "Black wins in three stages: bring the king to h3 keeping the pawns intact, advance the h-pawn to h4, then time the g-pawn advance (one or two squares) so g3 comes when White's king is on h1.",
+  "solution": "1. Kg3 Ke3 2. Kg2 Kf4 3. Kf2 Kg4 4. Kg2 Kh4 5. Kg1 Kh3 6. Kh1 h5 7. Kg1 h4 8. Kh1 g5 9. Kg1 g4 10. Kh1 g3 11. hxg3 hxg3 12. Kg1 g2 13. Kf2 Kh2",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/6p1/7p/8/4k3/8/6KP/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-23",
+  "title": "Ex 23 · King on h3: first stage complete",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §10 A Classical Ending (p. 38)",
+  "goal": "Black to win (White to move)",
+  "notes": "Black has finished the first stage of the plan by planting his king on h3 with both pawns unmoved. Now the h-pawn is advanced to h4, and then the g-pawn is timed so that ...g3 comes when the White king is on h1.",
+  "solution": "6. Kh1 h5 7. Kg1 h4 8. Kh1 g5 9. Kg1 g4 10. Kh1 g3 11. hxg3 (11. Kg1 g2) hxg3 12. Kg1 g2 13. Kf2 Kh2",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/6p1/7p/8/8/7k/7P/6K1 w - - 0 6"
+ },
+ {
+  "id": "cf-fig-24",
+  "title": "Ex 23 · Timing the g-pawn advance",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §10 A Classical Ending (p. 38)",
+  "goal": "Black to win (White to move)",
+  "notes": "The h-pawn has reached h4, ending the second stage. Black can move the g-pawn one or two squares, so he chooses the step that lets him play ...g3 when the White king is in the corner. That forces a passed pawn through.",
+  "solution": "8. Kh1 g5 9. Kg1 g4 10. Kh1 g3 11. hxg3 (11. Kg1 g2) hxg3 12. Kg1 g2 13. Kf2 Kh2",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/6p1/8/8/7p/7k/7P/6K1 w - - 0 8"
+ },
+ {
+  "id": "cf-fig-25",
+  "title": "Ex 24 · Three-pawn breakthrough",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §11 Obtaining a Passed Pawn (p. 40)",
+  "goal": "White to play and win",
+  "notes": "When three pawns face three, advancing the centre pawn breaks through and creates a passed pawn. White's pawns are closer to queening than Black's, so the breakthrough wins. If Black moved first, ...b6 would block it and the game would be a draw.",
+  "solution": "1. b6 axb6 (1... cxb6 2. a6) 2. c6 bxc6 3. a6",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/ppp4k/8/PPP5/8/8/8/7K w - - 0 1"
+ },
+ {
+  "id": "cf-fig-26",
+  "title": "Ex 25 · Counting the pawn race",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §12 How to Find Out Which Pawn Will Be First to Queen (p. 41)",
+  "goal": "Whoever moves first wins (White to move)",
+  "notes": "Neither king can catch the enemy pawn, so the side that queens first wins. White does not recapture on b6: the a-pawn queens on a8, which covers h1, where Black will promote.",
+  "solution": "1. a4 h5 2. a5 h4 3. b6 axb6 4. a6 h3 5. a7 h2 6. a8=Q",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/p5kp/8/1P6/8/1K6/P7/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-27",
+  "title": "Ex 26 · Close frontal opposition",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §13 The Opposition (p. 43)",
+  "goal": "Illustration of the opposition (White to move)",
+  "notes": "The kings face each other on a file with an odd number of squares between them. After 1. Kd4, Black can keep the opposition with ...Kd6 or let the kings pass with ...Kf5.",
+  "solution": "1. Kd4 Kd6 (1... Kf5)",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/8/4k3/1p5p/1P2K2P/8/8/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-28",
+  "title": "Fig 28 · Close diagonal opposition",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §13 The Opposition (p. 44)",
+  "goal": "Illustration: diagonal opposition",
+  "notes": "The kings stand on the same diagonal with one square between them. Whoever moved last holds the opposition.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/8/2k5/8/4K3/8/8/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-29",
+  "title": "Fig 29 · Close lateral opposition",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §13 The Opposition (p. 44)",
+  "goal": "Illustration: lateral opposition",
+  "notes": "The kings stand on the same rank with one square between them. Like the frontal and diagonal forms, the player who moved last has the opposition.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/8/8/8/2k1K3/8/8/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-30",
+  "title": "Ex 27 · Whoever moves wins",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §13 The Opposition (p. 45)",
+  "goal": "White to play and win",
+  "notes": "The kings face each other with an even number of squares between them, so the side to move has the opposition and wins. White marches straight up, keeps the opposition with Kf4 rather than passing with Kd5, and wins the b-pawn. If Black makes a waiting move, White answers with a waiting move of his own, such as Kf3.",
+  "solution": "1. Ke2 Ke7 (1... Kd8 2. Kf3 Ke7 3. Ke3) 2. Ke3 Ke6 3. Ke4 Kf6 4. Kf4 Kg6 (4... Ke6 5. Kg5) 5. Ke5 Kg7",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "4k3/8/8/1p5p/1P5P/8/8/4K3 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-31",
+  "title": "Ex 28 · Distant opposition saves a pawn down",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §13 The Opposition (p. 48)",
+  "goal": "White to play and draw",
+  "notes": "White is a pawn down but draws by taking the distant opposition with 1. Kh1! The close opposition with 1. Kf1 fails because his own f3 pawn gets in the way. If Black plays ...g4, both sides queen.",
+  "solution": "1. Kh1 Kd2 (1... g4 2. Kg2 Kd2 3. fxg4 e4) 2. Kh2 Kd3 3. Kh3 Ke2 4. Kg2 Ke3 5. Kg3 Kd4 6. Kg4 Ke3",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/8/8/4p1p1/8/5P2/6K1/3k4 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-32",
+  "title": "Ex 29 · Two knights cannot mate",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §14 The Relative Value of Knight and Bishop (p. 50)",
+  "goal": "Draw: White cannot force mate",
+  "notes": "Two knights alone cannot force mate, even with the enemy king cornered. The best they can do is stalemate.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "k7/8/1K1NN3/8/8/8/8/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-33",
+  "title": "Ex 29 · Two knights mate thanks to a pawn",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §14 The Relative Value of Knight and Bishop (p. 50)",
+  "goal": "White wins with or without the move",
+  "notes": "Black's h-pawn removes the stalemate defence, so the two knights can mate. White must not take the pawn; instead he brings the knights round while Black is forced to push it.",
+  "solution": "1. Ng6 h4 2. Ne5 h3 3. Nc6 h2 4. Nb5 h1=Q 5. Nc7#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "k7/8/1K1N4/7p/7N/8/8/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-34",
+  "title": "Ex 30 · Wrong-coloured bishop and rook's pawn",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §14 The Relative Value of Knight and Bishop (p. 51)",
+  "goal": "Draw (White cannot win)",
+  "notes": "Despite being a bishop and pawn ahead, White cannot win because the h-pawn queens on a dark square while the bishop is light-squared and the black king sits in front of the pawn. Black simply keeps his king near the corner.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "7k/8/8/6K1/8/3B4/7P/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-35",
+  "title": "Ex 31 · Knight mates against two pawns",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §14 The Relative Value of Knight and Bishop (p. 52)",
+  "goal": "White wins with or without the move",
+  "notes": "An exceptional case where a lone knight and king mate because Black's own pawns block his king. Black's pawn moves eventually give White the tempo to deliver mate with the knight.",
+  "solution": "1... Kh2 2. Ng4+ Kh1 3. Kf1 g5 4. Kf2 h2 5. Ne3 g4 6. Nf1 g3+ 7. Nxg3#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/8/5Np1/8/8/7p/5K2/7k b - - 0 1"
+ },
+ {
+  "id": "cf-fig-37",
+  "title": "Ex 33 · Block position favours the knight",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §14 The Relative Value of Knight and Bishop (p. 54)",
+  "goal": "Black has excellent winning chances",
+  "notes": "In a blocked position with all pawns on one wing, the knight is better than the bishop, especially as White's pawns stand on the same colour as his own bishop, restricting it. Keep your pawns on squares opposite in colour to your own bishop.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "4k3/3n4/2p5/1pPp4/pP1P4/P7/8/2B1K3 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-38",
+  "title": "Ex 34 · Knight vs bishop, pawns on one wing",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §14 The Relative Value of Knight and Bishop (p. 55)",
+  "goal": "Should be a draw",
+  "notes": "With equal pawns all on one side of the board, neither knight nor bishop has an advantage and the game should be drawn.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "4k3/3n1ppp/8/8/8/8/5PPP/2B1K3 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-39",
+  "title": "Ex 35 · Pawns on both wings favour the bishop",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §14 The Relative Value of Knight and Bishop (p. 56)",
+  "goal": "Draw with correct play, but bishop preferable",
+  "notes": "Adding pawns on both wings makes the bishop preferable, thanks to its long-range command of both sides from the centre and its speed in switching wings, though correct play should still draw.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "4k3/pppn1ppp/8/8/8/8/PPP2PPP/2B1K3 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-40",
+  "title": "Ex 36 · Unbalanced pawn majorities",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §14 The Relative Value of Knight and Bishop (p. 56)",
+  "goal": "White has somewhat better chances; should be a draw",
+  "notes": "Equal pawn count but unbalanced: White has a 3-2 kingside majority and Black a 3-2 queenside majority. This favours the side with the bishop, though proper play should draw.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "4k3/pppn1pp1/8/8/8/8/1PP2PPP/2B1K3 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-41",
+  "title": "Ex 37 · Bishop with passed pawns on both wings",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §14 The Relative Value of Knight and Bishop (p. 57)",
+  "goal": "Black will have extreme difficulty drawing",
+  "notes": "With pawns on both wings and a passed pawn for each side (White's h-pawn, Black's a-pawn), the bishop is a decided advantage and Black may not be able to hold.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "4k3/pppn1p2/8/8/8/8/2P2PPP/2B1K3 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-42",
+  "title": "Ex 38 · Scattered pawns favour the bishop",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §14 The Relative Value of Knight and Bishop (p. 58)",
+  "goal": "Black will have great difficulty drawing",
+  "notes": "Again the bishop is clearly superior with pawns spread across the board. The method: centralise the king or head for passed or weak pawns, and push passed pawns as far as is safe.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "4k3/p1pn1p2/8/8/8/8/2P2P1P/2B1K3 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-43",
+  "title": "Ex 39 · Bishop and knight mate: driving the king",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §15 How to Mate with a Knight and a Bishop (p. 59)",
+  "goal": "White to play and mate",
+  "notes": "Mate with bishop and knight is only possible in a corner of the bishop's colour (a1 or h8 here). First the king is centralised and the enemy king driven to the edge; Black heads for the wrong-coloured corner a8.",
+  "solution": "1. Ke2 Kd7 2. Kd3 Kc6 3. Bf4 Kd5 4. Ne2 Kc5 5. Nc3 Kb4 6. Kd4 Ka5 7. Kc5 Ka6 8. Kc6 Ka7 9. Nd5 Ka8 10. Nb6+ Ka7 11. Bc7 Ka6 12. Bb8 Ka5 13. Nd5 Ka4 14. Kc5 Kb3 15. Nb4 Kc3 16. Bf4 Kb3 17. Be5 Ka4 18. Kc4 Ka5 19. Bc7+ Ka4 20. Nd3 Ka3 21. Bb6 Ka4 22. Nb2+ Ka3 23. Kc3 Ka2 24. Kc2 Ka3 25. Bc5+ Ka2 26. Nd3 Ka1 27. Bb4 Ka2 28. Nc1+ Ka1 29. Bc3#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "4k3/8/8/8/8/8/8/2B1K1N1 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-44",
+  "title": "Ex 39 · Bishop and knight mate: from the wrong corner",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §15 How to Mate with a Knight and a Bishop (p. 60)",
+  "goal": "White to play and mate",
+  "notes": "With the black king in the light corner a8, White drives it along the edge to a1, keeping his king close and using knight and king to cover the squares the bishop cannot. An alternative is 14. Be5 Kb3 15. Ne3, but the king-led method is more instructive.",
+  "solution": "10. Nb6+ Ka7 11. Bc7 Ka6 12. Bb8 Ka5 13. Nd5 Ka4 14. Kc5 (14. Be5 Kb3 15. Ne3) Kb3 15. Nb4 Kc3 16. Bf4 Kb3 17. Be5 Ka4 18. Kc4 Ka5 19. Bc7+ Ka4 20. Nd3 Ka3 21. Bb6 Ka4 22. Nb2+ Ka3 23. Kc3 Ka2 24. Kc2 Ka3 25. Bc5+ Ka2 26. Nd3 Ka1 27. Bb4 Ka2 28. Nc1+ Ka1 29. Bc3#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "k7/8/2K5/3N4/5B2/8/8/8 w - - 0 10"
+ },
+ {
+  "id": "cf-fig-45",
+  "title": "Ex 40 · Queen vs rook: the standard position",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §16 Queen Against Rook (p. 62)",
+  "goal": "White to play and win",
+  "notes": "The key position: with Black to move he must separate rook from king and lose it, so White triangulates with long-range queen checks to reach the same position with Black to move. Beware 1. Qa6?, which allows a stalemate trick.",
+  "solution": "1. Qe5+ Ka8 (1... Ka7) 2. Qa1+ Kb8 3. Qa5 Rb3 4. Qe5+ Ka8 5. Qh8+ Ka7 6. Qg7+ Ka8 7. Qg8+ Rb8 8. Qa2#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "1k6/1r6/2K5/Q7/8/8/8/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-46",
+  "title": "Ex 41 · Queen vs rook: second standard position",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §16 Queen Against Rook (p. 64)",
+  "goal": "White to play and win",
+  "notes": "The procedure is like Example 40: keep the rook from interposing on b8 (immediate mate) and stop the king escaping to a6 or c8, until the rook must leave its king and is won.",
+  "solution": "",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/k7/2K5/4Q3/8/8/8/1r6 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-47",
+  "title": "Ex 42 · Queen vs rook: the deceptive check",
+  "source": "Capablanca, Chess Fundamentals, ch. 2, §16 Queen Against Rook (p. 64)",
+  "goal": "White to play and win",
+  "notes": "The natural 1. Qe5+ lets Black defend stubbornly with ...Rd7. The precise 1. Qg5+! followed by long diagonal checks and keeping queen and king on different lines forces the Example 40 position with Black to move.",
+  "solution": "1. Qg5+ Kh8 2. Qe5+ Kh7 3. Kg5 Ra7 4. Qe4+ Kg8 5. Qc4+ Kh7 6. Kf6 Rg7 7. Qh4+ Kg8 8. Qh5",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 2"
+  ],
+  "fen": "8/5rk1/8/5Q1K/8/8/8/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-48",
+  "title": "Ex 43 · Rook lift mating attack on g-file",
+  "source": "Capablanca, Chess Fundamentals, ch. 3, §17 Attacking Without the Aid of Knights (p. 68)",
+  "goal": "Black to play and win",
+  "notes": "A knight and pawn down, Black must strike at once: doubling rooks on the g-file against g2 and a bishop check decoy the defence and lead to a back-rank mate.",
+  "solution": "1... Rdg8 2. Rf2 (2. Qxe7 Rxg2+ 3. Kh1 Bd5) 2... Rxg2+ 3. Kf1 Bc4+ 4. Nxc4 Rg1#",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 3"
+  ],
+  "fen": "2kr4/ppp1qp2/4bQ2/8/3P2r1/N1P5/PP4P1/R1B2RK1 b - - 0 1"
+ },
+ {
+  "id": "cf-fig-49",
+  "title": "Ex 44 · Rook sacrifice and a-file pin",
+  "source": "Capablanca, Chess Fundamentals, ch. 3, §17 Attacking Without the Aid of Knights (p. 69)",
+  "goal": "White to play and mate in three",
+  "notes": "Instead of the expected Ra5, which allows perpetual check, White first sacrifices on a7 to draw the queen onto the a-file, then pins it with Ra5 and mates next move.",
+  "solution": "1. Rxa7+ Qxa7 2. Ra5",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 3"
+  ],
+  "fen": "kr2r3/pRp3pp/Q1P5/5R2/Pp1q4/3pp2P/6PK/8 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-50",
+  "title": "Ex 45 · Exchange sacrifice on h6 wins material",
+  "source": "Capablanca, Chess Fundamentals, ch. 3, §17 Attacking Without the Aid of Knights (p. 70)",
+  "goal": "White to play and win material",
+  "notes": "With a dominating position, White cashes in before Black consolidates: Rxh6 and Bxh6+ strip the king, and queen checks pick up the g8 knight and finally the a7 rook.",
+  "solution": "1. Rxh6 gxh6 2. Bxh6+ Ke7 (2... Nxh6 3. Rxh6) 3. Qh7+ Ke8 4. Qxg8+ Kd7 5. Qh7+ Qe7 6. Bf8 Qxh7 7. Rxh7+ Ke8 8. Rxa7",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 3"
+  ],
+  "fen": "3q1kn1/r5p1/1ppr1pQn/p2ppP2/P3P2R/1BPPB3/1P3PK1/7R w - - 0 1"
+ },
+ {
+  "id": "cf-fig-51",
+  "title": "Ex 46 · Knight sacrifice on g7",
+  "source": "Capablanca, Chess Fundamentals, ch. 3, §18 Attacking With Knights as a Prominent Force (p. 71)",
+  "goal": "White to play and win",
+  "notes": "Two pawns down, White keeps up the attack with Nfxg7. Black's 1...Nc5 was an error allowing Nxe8; even the better 1...Nxg7 leaves Black lost after the knight forks and checks.",
+  "solution": "1. Nfxg7 Nc5 (1... Nxg7 2. Nf6+ Kg6 3. Nxe8 f6 4. e5 Kf7 5. Nxd6 Re7 6. Ne4) 2. Nxe8",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 3"
+  ],
+  "fen": "4r2r/p1pb1ppk/2ppn2p/1q3N1N/4PPP1/1P2Q3/4R2P/2R3K1 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-52",
+  "title": "Ex 47 · Classic Greek gift Bxh7+",
+  "source": "Capablanca, Chess Fundamentals, ch. 3, §18 Attacking With Knights as a Prominent Force (p. 72)",
+  "goal": "White to play and win",
+  "notes": "The typical bishop sacrifice on h7 followed by Ng5+ and the queen coming to the kingside; Capablanca stresses that this pattern occurs often and must be studied carefully.",
+  "solution": "1. Bxh7+ Kxh7 2. Ng5+ Kg6 (2... Kh6 3. Nxf7+; 2... Kg8 3. Qh5) 3. Qg4 f5 4. Qg3 Kh6",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 3"
+  ],
+  "fen": "r1bq1rk1/pp2nppp/4p3/2n5/8/2NBPN2/PP3PPP/R2Q1RK1 w - - 0 1"
+ },
+ {
+  "id": "cf-fig-53",
+  "title": "Ex 48 · Queenside pressure regains a pawn",
+  "source": "Capablanca, Chess Fundamentals, ch. 3, §19 Winning by Indirect Attack (p. 73)",
+  "goal": "Black to play and regain the pawn with advantage",
+  "notes": "A pawn down, Black co-ordinates all his pieces against White's queenside: rooks on the a- and b-files, queen on c4 and bishop on the long diagonal eventually force White to give up the exchange.",
+  "solution": "1... Ra8 2. a4 (2. b3 Nxd2 3. Qxd2 Ra3) 2... Nxd2 3. Qxd2 Qc4 4. Rfd1 Reb8 5. Qe3 Rb4 6. Qg5 Bd4+ 7. Kh1 Rab8 8. Rxd4 Qxd4 9. Rd1 Qc4",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 3"
+  ],
+  "fen": "2r1r1k1/2p2pbp/2ppq1p1/8/2n1P3/2N2P2/PPPBQ1PP/1R3RK1 b - - 0 1"
+ },
+ {
+  "id": "cf-fig-54",
+  "title": "Ex 49 · Nd4! exploits the exposed king",
+  "source": "Capablanca, Chess Fundamentals, ch. 3, §19 Winning by Indirect Attack (p. 75)",
+  "goal": "White to play and win a pawn",
+  "notes": "Rather than the obvious Bc4, White plays Nd4!, deflecting the c5 pawn so the c6 bishop falls; Bc4+ and Re6 then exploit Black's exposed king and White emerges a pawn up with the better position.",
+  "solution": "1. Nd4 cxd4 2. Rxc6 Nb4 3. Bc4+ Kh8 4. Re6 d3 5. Rxd3",
+  "tags": [
+   "Chess Fundamentals",
+   "Ch 3"
+  ],
+  "fen": "r4rk1/p3q1pp/1pb5/2pn1p2/8/3BPN2/PP2QPPP/2RR2K1 w - - 0 1"
+ }
+]
