@@ -3,7 +3,7 @@ import type { Api } from '@lichess-org/chessground/api';
 import type { Color, Key } from '@lichess-org/chessground/types';
 import { Chess, type Move } from 'chess.js';
 import * as store from '../storage';
-import { dests, fenParts, toPgn, turnColor } from '../chessutil';
+import { dests, fenParts, solutionLine, toPgn, turnColor } from '../chessutil';
 import { getEngine } from '../engine';
 import { LEVELS, getLevel, setLevel, type Level } from '../levels';
 import { h, copyText, dialog, saveFile, toast } from '../ui';
@@ -27,6 +27,15 @@ export function playView(root: HTMLElement, id: string): () => void {
   let thinking = false;
   let token = 0; // bumped to discard engine replies that are no longer wanted
   let destroyed = false;
+  // Playing through the book's solution: 'playing' while moves are being shown, 'done' once it stops.
+  const solutionMoves = solutionLine(scenario.fen, scenario.solution);
+  // 'practice': you play your side, each move is checked against the book and the book plays the other side.
+  let replay: 'off' | 'playing' | 'done' | 'practice' = 'off';
+  let mistakes = 0;
+  let hintsUsed = 0;
+  let practiceMsg = '';
+  let replayTimer: ReturnType<typeof setTimeout> | undefined;
+  const REPLAY_DELAY = 500; // ms between moves
 
   const boardEl = h('div', { class: 'board' });
   const cg: Api = Chessground(boardEl, {
@@ -52,6 +61,9 @@ export function playView(root: HTMLElement, id: string): () => void {
 
   const undoBtn = h('button', { onclick: undo }, '↶ Undo');
   const hintBtn = h('button', { onclick: hint }, '💡 Hint');
+  const replayBtn = h('button', { onclick: () => (replay === 'playing' ? stopReplay() : playSolution()) }, '▶ Play solution');
+  const practiceBtn = h('button', { onclick: startPractice }, '🎯 Practice');
+  const playOnBtn = h('button', { class: 'primary', onclick: playOn }, 'Play on from here');
   const navFirst = h('button', { class: 'small', onclick: () => view(0), 'aria-label': 'First move' }, '⏮');
   const navPrev = h('button', { class: 'small', onclick: () => view((viewPly ?? history.length) - 1), 'aria-label': 'Previous move' }, '◀');
   const navNext = h('button', { class: 'small', onclick: () => view((viewPly ?? history.length) + 1), 'aria-label': 'Next move' }, '▶');
@@ -86,7 +98,10 @@ export function playView(root: HTMLElement, id: string): () => void {
           h('button', { onclick: flip }, '⇅ Flip'),
           hintBtn,
           scenario.solution ? h('button', { onclick: showSolution }, 'Solution') : null,
+          solutionMoves.length ? replayBtn : null,
+          solutionMoves.length ? practiceBtn : null,
         ),
+        h('section', { class: 'buttons' }, playOnBtn),
         h('section', {}, h('h4', {}, 'Moves'), moveList, h('div', { class: 'nav' }, navFirst, navPrev, navNext, navLast)),
         h(
           'section',
@@ -104,7 +119,8 @@ export function playView(root: HTMLElement, id: string): () => void {
     const live = viewPly === null;
     const shown = live ? chess : positionAt(viewPly!);
     const last = live ? history[history.length - 1] : history[viewPly! - 1];
-    const userTurn = live && !thinking && !chess.isGameOver() && turnColor(chess) === userColor;
+    const practising = replay === 'practice' && history.length < solutionMoves.length;
+    const userTurn = live && (replay === 'off' || practising) && !thinking && !chess.isGameOver() && turnColor(chess) === userColor;
     cg.set({
       fen: shown.fen(),
       turnColor: turnColor(shown),
@@ -116,8 +132,10 @@ export function playView(root: HTMLElement, id: string): () => void {
     cg.setAutoShapes([]);
     sideW.classList.toggle('active', userColor === 'white');
     sideB.classList.toggle('active', userColor === 'black');
-    undoBtn.disabled = history.length === 0;
+    undoBtn.disabled = history.length === 0 || replay === 'practice';
     hintBtn.disabled = !userTurn;
+    replayBtn.textContent = replay === 'playing' ? '⏹ Stop' : '▶ Play solution';
+    playOnBtn.parentElement!.hidden = !(replay === 'done' && !shown.isGameOver());
     navPrev.disabled = navFirst.disabled = (viewPly ?? history.length) === 0;
     navNext.disabled = navLast.disabled = live;
     renderStatus();
@@ -133,7 +151,13 @@ export function playView(root: HTMLElement, id: string): () => void {
   function renderStatus() {
     let text: string;
     let cls = '';
-    if (viewPly !== null) text = 'Looking back — tap ⏭ to return to the game.';
+    if (replay === 'playing') text = `Playing the book’s line… move ${history.length} of ${solutionMoves.length}`;
+    else if (replay === 'practice' && viewPly === null) {
+      const yourMove = turnColor(chess) === userColor;
+      text = practiceMsg && yourMove ? `${practiceMsg}${practiceMsg.startsWith('✓') ? ' Your move.' : ''}` : yourMove ? 'Your move — play the book’s move.' : `${practiceMsg ? practiceMsg + ' ' : ''}Book reply…`;
+      if (practiceMsg.startsWith('✗')) cls = 'bad';
+      else if (practiceMsg.startsWith('✓')) cls = 'good';
+    } else if (viewPly !== null) text = replay === 'done' ? 'Looking back — you can play on from this move.' : 'Looking back — tap ⏭ to return to the game.';
     else if (chess.isCheckmate()) {
       const userWon = turnColor(chess) !== userColor;
       text = userWon ? 'Checkmate — you win! 🎉' : 'Checkmate — the computer wins.';
@@ -142,6 +166,10 @@ export function playView(root: HTMLElement, id: string): () => void {
     else if (chess.isInsufficientMaterial()) text = 'Draw — not enough material to mate.';
     else if (chess.isThreefoldRepetition()) text = 'Draw by threefold repetition.';
     else if (chess.isDrawByFiftyMoves()) text = 'Draw by the fifty-move rule.';
+    else if (replay === 'done' && practiceMsg) {
+      text = practiceMsg;
+      cls = mistakes || hintsUsed ? '' : 'good';
+    } else if (replay === 'done') text = history.length === solutionMoves.length ? 'End of the book’s line. Step back with ◀, or play on from here.' : 'Stopped. Step back with ◀, or play on from here.';
     else if (thinking) text = 'Computer is thinking…';
     else text = `Your move${chess.inCheck() ? ' — you’re in check!' : ''}`;
     status.textContent = text;
@@ -171,6 +199,7 @@ export function playView(root: HTMLElement, id: string): () => void {
 
   function view(ply: number) {
     if (ply < 0 || ply > history.length) return;
+    if (replay === 'playing') stopReplay();
     viewPly = ply >= history.length ? null : ply;
     sync();
   }
@@ -186,17 +215,65 @@ export function playView(root: HTMLElement, id: string): () => void {
         { label: '♞ Knight', value: 'n' },
       ])) ?? 'q';
     }
+    let move: Move;
     try {
-      history.push(chess.move({ from: orig, to: dest, promotion }));
+      move = chess.move({ from: orig, to: dest, promotion });
     } catch {
-      // Shouldn't happen since only legal destinations are offered.
+      return sync(); // Shouldn't happen since only legal destinations are offered.
     }
+    history.push(move);
     viewPly = null;
+    if (replay === 'practice') {
+      const expected = solutionMoves[history.length - 1];
+      if (move.san !== expected) {
+        chess.undo();
+        history.pop();
+        mistakes++;
+        practiceMsg = `✗ ${move.san} isn’t the book’s move — try again.`;
+        return sync();
+      }
+      practiceMsg = `✓ ${move.san} is right.`;
+      sync();
+      return practiceStep();
+    }
     sync();
     maybeEngineMove();
   }
 
+  function startPractice() {
+    cancelThinking();
+    clearTimeout(replayTimer);
+    chess = new Chess(scenario!.fen);
+    history = [];
+    viewPly = null;
+    replay = 'practice';
+    mistakes = 0;
+    hintsUsed = 0;
+    practiceMsg = '';
+    sync();
+    practiceStep();
+  }
+
+  /** In practice mode: play the book's reply when it's the other side's turn, or finish at the end of the line. */
+  function practiceStep() {
+    if (destroyed || replay !== 'practice') return;
+    if (history.length >= solutionMoves.length) {
+      replay = 'done';
+      const extras = [mistakes && `${mistakes} mistake${mistakes === 1 ? '' : 's'}`, hintsUsed && `${hintsUsed} hint${hintsUsed === 1 ? '' : 's'}`].filter(Boolean).join(', ');
+      practiceMsg = extras ? `End of the book’s line (${extras}). Tap 🎯 Practice to try again, or play on.` : '🎉 Perfect — you played the book’s line with no mistakes!';
+      return sync();
+    }
+    if (turnColor(chess) === userColor) return;
+    replayTimer = setTimeout(() => {
+      if (destroyed || replay !== 'practice') return;
+      history.push(chess.move(solutionMoves[history.length]));
+      sync();
+      practiceStep();
+    }, REPLAY_DELAY);
+  }
+
   async function maybeEngineMove() {
+    if (replay !== 'off') return;
     if (chess.isGameOver() || turnColor(chess) === userColor || thinking) return;
     thinking = true;
     const my = ++token;
@@ -236,6 +313,11 @@ export function playView(root: HTMLElement, id: string): () => void {
 
   function undo() {
     if (!history.length) return;
+    if (replay !== 'off') {
+      // Leave solution mode; the undo below then works on the moves shown so far.
+      clearTimeout(replayTimer);
+      replay = 'off';
+    }
     const wasThinking = thinking;
     cancelThinking();
     // Take back the computer's reply (if any) and your last move.
@@ -252,6 +334,9 @@ export function playView(root: HTMLElement, id: string): () => void {
 
   function restart() {
     cancelThinking();
+    clearTimeout(replayTimer);
+    replay = 'off';
+    practiceMsg = '';
     chess = new Chess(scenario!.fen);
     history = [];
     viewPly = null;
@@ -267,12 +352,64 @@ export function playView(root: HTMLElement, id: string): () => void {
     restart();
   }
 
+  function playSolution() {
+    cancelThinking();
+    clearTimeout(replayTimer);
+    chess = new Chess(scenario!.fen);
+    history = [];
+    viewPly = null;
+    replay = 'playing';
+    practiceMsg = '';
+    cg.setAutoShapes([]);
+    sync();
+    const step = () => {
+      if (destroyed || replay !== 'playing') return;
+      const san = solutionMoves[history.length];
+      if (!san) return stopReplay();
+      history.push(chess.move(san));
+      sync();
+      replayTimer = setTimeout(step, REPLAY_DELAY);
+    };
+    replayTimer = setTimeout(step, REPLAY_DELAY);
+  }
+
+  function stopReplay() {
+    clearTimeout(replayTimer);
+    replay = 'done';
+    sync();
+  }
+
+  /** Leave solution mode and carry on as a normal game from the current position. */
+  function playOn() {
+    clearTimeout(replayTimer);
+    replay = 'off';
+    practiceMsg = '';
+    if (viewPly !== null) {
+      // Continue from the move being looked at, dropping the later moves.
+      chess = positionAt(viewPly);
+      history = history.slice(0, viewPly);
+    }
+    viewPly = null;
+    sync();
+    maybeEngineMove();
+  }
+
   function flip() {
     orientation = orientation === 'white' ? 'black' : 'white';
     cg.set({ orientation });
   }
 
   async function hint() {
+    if (replay === 'practice') {
+      // In practice the hint is the book's move, not the engine's.
+      const san = solutionMoves[history.length];
+      const m = san && new Chess(chess.fen()).move(san);
+      if (m) {
+        hintsUsed++;
+        cg.setAutoShapes([{ orig: m.from as Key, dest: m.to as Key, brush: 'green' }]);
+      }
+      return;
+    }
     hintBtn.disabled = true;
     const my = token;
     const fen = chess.fen();
@@ -317,6 +454,7 @@ export function playView(root: HTMLElement, id: string): () => void {
 
   return () => {
     destroyed = true;
+    clearTimeout(replayTimer);
     cancelThinking();
     cg.destroy();
   };

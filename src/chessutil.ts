@@ -119,6 +119,32 @@ export function movetext(fen: string, moves: string[]): string {
   return out.join(' ');
 }
 
+/**
+ * The main line of a solution written as SAN movetext ("1. Rd1+ Ke7 2. Rd4 (2. Kc7?) ...").
+ * Move numbers, {comments} and (variations) are skipped. Stops at the first move that isn't legal.
+ */
+export function solutionLine(fen: string, text: string): string[] {
+  let main = '';
+  let depth = 0;
+  for (const ch of text.replace(/\{[^}]*\}/g, ' ')) {
+    if (ch === '(') depth++;
+    else if (ch === ')') depth = Math.max(0, depth - 1);
+    else if (!depth) main += ch;
+  }
+  const chess = new Chess(fen);
+  const moves: string[] = [];
+  for (const tok of main.split(/\s+/)) {
+    const t = tok.replace(/^\d+\.(\.\.)?/, '').replace(/[!?]+$/, '');
+    if (!t || /^(\d+\.+|\.\.\.|…|1-0|0-1|1\/2-1\/2|\*)$/.test(t)) continue;
+    try {
+      moves.push(chess.move(t).san);
+    } catch {
+      break;
+    }
+  }
+  return moves;
+}
+
 /** Splits a (possibly multi-game) PGN file into separate games. */
 export function splitPgn(text: string): string[] {
   // Every game in a standard PGN file begins with an [Event "..."] header.
