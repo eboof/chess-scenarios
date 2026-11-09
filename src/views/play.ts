@@ -194,7 +194,15 @@ export function playView(root: HTMLElement, id: string): () => void {
       if (!white) n++;
       white = !white;
     });
-    moveList.querySelector('.current')?.scrollIntoView({ block: 'nearest' });
+    // Keep the current move visible by scrolling only the move list. scrollIntoView would also
+    // scroll the page, which pushed the top of the board off screen on the iPad.
+    const cur = moveList.querySelector<HTMLElement>('.current');
+    if (cur) {
+      const top = cur.offsetTop;
+      const bottom = top + cur.offsetHeight;
+      if (top < moveList.scrollTop) moveList.scrollTop = top - 8;
+      else if (bottom > moveList.scrollTop + moveList.clientHeight) moveList.scrollTop = bottom - moveList.clientHeight + 8;
+    }
   }
 
   function view(ply: number) {

@@ -138,6 +138,7 @@ details p { margin: 0.5em 0 0; white-space: pre-wrap; }
 
 /* ---- Move list ---- */
 .moves {
+  position: relative; /* so move offsets are measured from the list itself */
   display: flex;
   flex-wrap: wrap;
   gap: 2px 4px;
